@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewPostForm: View {
-    typealias CreateAction = (Post) -> Void
+    typealias CreateAction = (Post) async throws -> Void
     
     @State private var post = Post(title: "", content: "", authorName: "")
 
@@ -43,7 +43,13 @@ struct NewPostForm: View {
     }
     
     private func createPost() {
-        createAction(post)
+        Task {
+            do {
+                try await createAction(post)
+            } catch {
+                print("Error while creating a post: \(error)")
+            }
+        }
         dismiss()
     }
 }
