@@ -17,6 +17,7 @@
 		1764717E2B487DCF009071D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1764717D2B487DCF009071D4 /* GoogleService-Info.plist */; };
 		176471822B48810A009071D4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471812B48810A009071D4 /* Post.swift */; };
 		176471842B4882A6009071D4 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471832B4882A6009071D4 /* PostsList.swift */; };
+		176471862B4884E8009071D4 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471852B4884E8009071D4 /* PostRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		1764717D2B487DCF009071D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		176471812B48810A009071D4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		176471832B4882A6009071D4 /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
+		176471852B4884E8009071D4 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				176471832B4882A6009071D4 /* PostsList.swift */,
+				176471852B4884E8009071D4 /* PostRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				176471822B48810A009071D4 /* Post.swift in Sources */,
 				176471652B487D11009071D4 /* SocialcademyApp.swift in Sources */,
+				176471862B4884E8009071D4 /* PostRow.swift in Sources */,
 				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

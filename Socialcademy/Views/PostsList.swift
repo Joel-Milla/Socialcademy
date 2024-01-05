@@ -10,8 +10,11 @@ import SwiftUI
 struct PostsList: View {
     private var posts: [Post] = [Post.testPost]
     var body: some View {
-        List(posts) { post in
-            Text(post.title)
+        NavigationStack {
+            List(posts) { post in
+                PostRow(post: post)
+            }
+            .navigationTitle("Posts")
         }
     }
 }
