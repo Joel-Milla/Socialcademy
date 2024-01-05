@@ -57,7 +57,7 @@ struct NewPostForm: View {
                 try await createAction(post)
                 dismiss()
             } catch {
-                print("Error while creating a post: \(error)")
+                print("[NewPostFrom] Error while creating a post: \(error)")
                 state = .error
             }
         }

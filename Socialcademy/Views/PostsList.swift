@@ -35,6 +35,9 @@ struct PostsList: View {
             })
             .navigationTitle("Posts")
         }
+        .onAppear(perform: {
+            postViewModel.fetchPosts()
+        })
     }
 }
 
