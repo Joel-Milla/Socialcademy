@@ -19,6 +19,7 @@
 		176471842B4882A6009071D4 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471832B4882A6009071D4 /* PostsList.swift */; };
 		176471862B4884E8009071D4 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471852B4884E8009071D4 /* PostRow.swift */; };
 		176471882B488A92009071D4 /* NewPostForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471872B488A92009071D4 /* NewPostForm.swift */; };
+		1764718B2B48A110009071D4 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764718A2B48A110009071D4 /* PostsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		176471832B4882A6009071D4 /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
 		176471852B4884E8009071D4 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
 		176471872B488A92009071D4 /* NewPostForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostForm.swift; sourceTree = "<group>"; };
+		1764718A2B48A110009071D4 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				176471642B487D11009071D4 /* SocialcademyApp.swift */,
 				1764717F2B487F65009071D4 /* Views */,
+				176471892B48A0FC009071D4 /* ViewModels */,
 				176471802B4880BD009071D4 /* Model */,
 				1764717C2B487DB9009071D4 /* Resources */,
 			);
@@ -117,6 +120,14 @@
 				176471812B48810A009071D4 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		176471892B48A0FC009071D4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1764718A2B48A110009071D4 /* PostsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 			files = (
 				176471822B48810A009071D4 /* Post.swift in Sources */,
 				176471652B487D11009071D4 /* SocialcademyApp.swift in Sources */,
+				1764718B2B48A110009071D4 /* PostsViewModel.swift in Sources */,
 				176471862B4884E8009071D4 /* PostRow.swift in Sources */,
 				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 				176471882B488A92009071D4 /* NewPostForm.swift in Sources */,
