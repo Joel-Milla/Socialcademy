@@ -14,13 +14,23 @@ struct PostsList: View {
     
     var body: some View {
         NavigationStack {
-            List(postViewModel.posts) { post in
-                
-                if searchText.isEmpty || post.contains(searchText) {
-                    PostRow(post: post)
+            Group {
+                switch postViewModel.posts {
+                case .loading:
+                    ProgressView()
+                case .error(_):
+                    Text("Cannot Load Posts")
+                case .empty:
+                    Text("No posts")
+                case let .loaded(values):
+                    List(values) { post in
+                        if searchText.isEmpty || post.contains(searchText) {
+                            PostRow(post: post)
+                        }
+                    }
+                    .searchable(text: $searchText)
                 }
             }
-            .searchable(text: $searchText)
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {

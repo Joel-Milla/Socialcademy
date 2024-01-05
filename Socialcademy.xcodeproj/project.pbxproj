@@ -75,11 +75,11 @@
 			isa = PBXGroup;
 			children = (
 				176471642B487D11009071D4 /* SocialcademyApp.swift */,
-				1764718F2B48BFE6009071D4 /* Utilities */,
 				1764717F2B487F65009071D4 /* Views */,
 				176471892B48A0FC009071D4 /* ViewModels */,
 				1764718C2B48A7D1009071D4 /* Repositories */,
 				176471802B4880BD009071D4 /* Model */,
+				1764718F2B48BFE6009071D4 /* Utilities */,
 				1764717C2B487DB9009071D4 /* Resources */,
 			);
 			path = Socialcademy;
