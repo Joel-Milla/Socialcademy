@@ -22,6 +22,7 @@
 		1764718B2B48A110009071D4 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764718A2B48A110009071D4 /* PostsViewModel.swift */; };
 		1764718E2B48A7E4009071D4 /* PostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764718D2B48A7E4009071D4 /* PostsRepository.swift */; };
 		176471912B48BFFA009071D4 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471902B48BFFA009071D4 /* Loadable.swift */; };
+		176471962B48CADE009071D4 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471952B48CADE009071D4 /* EmptyListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		1764718A2B48A110009071D4 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		1764718D2B48A7E4009071D4 /* PostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRepository.swift; sourceTree = "<group>"; };
 		176471902B48BFFA009071D4 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		176471952B48CADE009071D4 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		176471632B487D11009071D4 /* Socialcademy */ = {
 			isa = PBXGroup;
 			children = (
+				176471922B48CAB9009071D4 /* Supporting Views */,
 				176471642B487D11009071D4 /* SocialcademyApp.swift */,
 				1764717F2B487F65009071D4 /* Views */,
 				176471892B48A0FC009071D4 /* ViewModels */,
@@ -114,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				176471832B4882A6009071D4 /* PostsList.swift */,
+				176471952B48CADE009071D4 /* EmptyListView.swift */,
 				176471872B488A92009071D4 /* NewPostForm.swift */,
 				176471852B4884E8009071D4 /* PostRow.swift */,
 			);
@@ -150,6 +154,13 @@
 				176471902B48BFFA009071D4 /* Loadable.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		176471922B48CAB9009071D4 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +251,7 @@
 				176471912B48BFFA009071D4 /* Loadable.swift in Sources */,
 				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 				176471882B488A92009071D4 /* NewPostForm.swift in Sources */,
+				176471962B48CADE009071D4 /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
