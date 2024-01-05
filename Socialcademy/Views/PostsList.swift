@@ -31,7 +31,7 @@ struct PostsList: View {
                 }
             })
             .sheet(isPresented: $showNewPostForm, content: {
-                NewPostForm(createAction: {_ in })
+                NewPostForm(createAction: postViewModel.makeCreateAction())
             })
             .navigationTitle("Posts")
         }
