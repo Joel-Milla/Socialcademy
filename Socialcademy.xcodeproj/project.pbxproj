@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		176471652B487D11009071D4 /* SocialcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471642B487D11009071D4 /* SocialcademyApp.swift */; };
-		176471672B487D11009071D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471662B487D11009071D4 /* ContentView.swift */; };
 		176471692B487D12009071D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176471682B487D12009071D4 /* Assets.xcassets */; };
 		1764716C2B487D12009071D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1764716B2B487D12009071D4 /* Preview Assets.xcassets */; };
 		176471742B487D51009071D4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 176471732B487D51009071D4 /* FirebaseAnalytics */; };
@@ -17,16 +16,17 @@
 		1764717B2B487D93009071D4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1764717A2B487D93009071D4 /* FirebaseFirestoreSwift */; };
 		1764717E2B487DCF009071D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1764717D2B487DCF009071D4 /* GoogleService-Info.plist */; };
 		176471822B48810A009071D4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471812B48810A009071D4 /* Post.swift */; };
+		176471842B4882A6009071D4 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471832B4882A6009071D4 /* PostsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		176471612B487D11009071D4 /* Socialcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		176471642B487D11009071D4 /* SocialcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyApp.swift; sourceTree = "<group>"; };
-		176471662B487D11009071D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		176471682B487D12009071D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1764716B2B487D12009071D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1764717D2B487DCF009071D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		176471812B48810A009071D4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		176471832B4882A6009071D4 /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 		1764717F2B487F65009071D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				176471662B487D11009071D4 /* ContentView.swift */,
+				176471832B4882A6009071D4 /* PostsList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,8 +194,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				176471822B48810A009071D4 /* Post.swift in Sources */,
-				176471672B487D11009071D4 /* ContentView.swift in Sources */,
 				176471652B487D11009071D4 /* SocialcademyApp.swift in Sources */,
+				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
