@@ -14,7 +14,6 @@ struct PostRow: View {
     var deleteAction: DeleteAction
     @State private var showConfirmationDialog = false
     @State private var error: Error?
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack {
@@ -47,6 +46,8 @@ struct PostRow: View {
                 Text("Delete")
             }
         }
+        .alert("Cannot Delete Post", error: $error)
+
     }
     
     private func deletePost() {
