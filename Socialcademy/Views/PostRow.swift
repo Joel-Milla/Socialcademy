@@ -8,31 +8,26 @@
 import SwiftUI
 
 struct PostRow: View {
-    typealias Action = () async throws -> Void
-    
-    let post: Post
-    var deleteAction: Action
-    var toggleFavoriteButtonAction: Action
+    @ObservedObject var postRowViewModel: PostRowViewModel
     @State private var showConfirmationDialog = false
-    @State private var error: Error?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack {
-                Text(post.authorName)
+                Text(postRowViewModel.authorName)
                     .font(.subheadline)
                     .fontWeight(.medium)
                 Spacer()
-                Text(post.timestamp.formatted(date: .abbreviated, time: .shortened))
+                Text(postRowViewModel.timestamp.formatted(date: .abbreviated, time: .shortened))
                     .font(.caption)
             }
             .foregroundStyle(.gray)
-            Text(post.title)
+            Text(postRowViewModel.title)
                 .font(.title3)
                 .fontWeight(.semibold)
-            Text(post.content)
+            Text(postRowViewModel.content)
             HStack {
-                FavoriteButton(isFavorite: post.isFavorite, action: favoriteAction)
+                FavoriteButton(isFavorite: postRowViewModel.isFavorite, action: {postRowViewModel.favoritePost()})
 
                 Spacer()
 
@@ -47,12 +42,11 @@ struct PostRow: View {
         })
         .padding(.vertical)
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
-            Button(role: .destructive, action: deletePost) {
+            Button(role: .destructive, action: {postRowViewModel.deletePost()}) {
                 Text("Delete")
             }
         }
-        .alert("Cannot Delete Post", error: $error)
-        
+        .alert("Error", error: $postRowViewModel.error)
     }
 }
 
@@ -79,6 +73,6 @@ private extension PostRow {
 
 #Preview {
     List {
-        PostRow(post: Post.testPost[0], deleteAction: {}, toggleFavoriteButtonAction: {})
+        PostRow(postRowViewModel: PostRowViewModel(post: Post.testPost[0], deleteAction: {}, favoriteAction: {}))
     }
 }

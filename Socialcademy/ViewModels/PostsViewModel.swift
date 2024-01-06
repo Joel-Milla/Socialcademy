@@ -34,18 +34,16 @@ class PostsViewModel: ObservableObject {
         }
     }
     
-    func makeDeleteAction(for post: Post) -> PostRow.Action {
-        return {[weak self] in
+    func makePostRowViewModel(for post: Post) -> PostRowViewModel {
+        return PostRowViewModel(post: post,
+                                deleteAction: {[weak self] in
             try await self?.postsRepository.delete(post)
             self?.posts.value?.removeAll(where: {$0.id == post.id})
-        }
-    }
-    
-    func makeFavoriteAction(for post: Post) -> PostRow.Action {
-        return {[weak self] in
+        },
+                                favoriteAction: {[weak self] in
             try await self?.postsRepository.favoriteAction(post)
             guard let index = self?.posts.value?.firstIndex(of: post) else { return }
             self?.posts.value?[index].isFavorite.toggle()
-        }
+        })
     }
 }
