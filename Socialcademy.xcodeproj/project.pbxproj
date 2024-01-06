@@ -28,6 +28,8 @@
 		178F29962B49E791000AD59E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29952B49E791000AD59E /* MainTabView.swift */; };
 		178F29992B49F53C000AD59E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29982B49F53C000AD59E /* AuthService.swift */; };
 		178F299B2B49F7CA000AD59E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F299A2B49F7CA000AD59E /* AuthViewModel.swift */; };
+		178F299D2B49F90D000AD59E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F299C2B49F90D000AD59E /* AuthView.swift */; };
+		178F299F2B49F9E5000AD59E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F299E2B49F9E5000AD59E /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		178F29952B49E791000AD59E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		178F29982B49F53C000AD59E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		178F299A2B49F7CA000AD59E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		178F299C2B49F90D000AD59E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		178F299E2B49F9E5000AD59E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +131,12 @@
 		1764717F2B487F65009071D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				178F299C2B49F90D000AD59E /* AuthView.swift */,
 				178F29952B49E791000AD59E /* MainTabView.swift */,
 				176471832B4882A6009071D4 /* PostsList.swift */,
 				176471872B488A92009071D4 /* NewPostForm.swift */,
 				176471852B4884E8009071D4 /* PostRow.swift */,
+				178F299E2B49F9E5000AD59E /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,9 +280,11 @@
 				176471862B4884E8009071D4 /* PostRow.swift in Sources */,
 				178F29992B49F53C000AD59E /* AuthService.swift in Sources */,
 				176471912B48BFFA009071D4 /* Loadable.swift in Sources */,
+				178F299F2B49F9E5000AD59E /* ProfileView.swift in Sources */,
 				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 				1764719A2B48E492009071D4 /* Alert+Error.swift in Sources */,
 				178F299B2B49F7CA000AD59E /* AuthViewModel.swift in Sources */,
+				178F299D2B49F90D000AD59E /* AuthView.swift in Sources */,
 				176471882B488A92009071D4 /* NewPostForm.swift in Sources */,
 				176471962B48CADE009071D4 /* EmptyListView.swift in Sources */,
 				178F29962B49E791000AD59E /* MainTabView.swift in Sources */,
