@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthView: View {
     @StateObject var authViewModel = AuthViewModel()
-
+    
     var body: some View {
         if authViewModel.isAuthenticated {
             MainTabView()
@@ -32,20 +32,13 @@ private extension AuthView {
         @ViewBuilder let footer: () -> Footer
         
         var body: some View {
-            VStack {
-                Text("Socialacademy")
-                    .font(.title.bold())
-                Group {
-                    TextField("Email", text: $authViewModel.email)
-                        .textContentType(.emailAddress)
-                        .textInputAutocapitalization(.never)
-                    SecureField("Password", text: $authViewModel.password)
-                        .textContentType(.password)
-                }
-                .padding()
-                .background(Color.secondary.opacity(0.15))
-                .cornerRadius(10)
-                
+            Form {
+                TextField("Email", text: $authViewModel.email)
+                    .textContentType(.emailAddress)
+                    .textInputAutocapitalization(.never)
+                SecureField("Password", text: $authViewModel.password)
+                    .textContentType(.password)
+            } footer: {
                 Button("Sign In", action: authViewModel.submit)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -55,12 +48,9 @@ private extension AuthView {
                 footer()
                     .padding()
             }
-            .toolbar(.hidden)
-            .onSubmit(authViewModel.submit)
-            .padding()
         }
     }
-
+    
     struct CreateAccount: View {
         @StateObject var authViewModel: AuthViewModel.CreateAccountViewModel
         
@@ -74,10 +64,31 @@ private extension AuthView {
                     .textInputAutocapitalization(.never)
                 SecureField("Password", text: $authViewModel.password)
                     .textContentType(.newPassword)
+            } footer: {
                 Button("Create Account", action: authViewModel.submit)
             }
-            .onSubmit(authViewModel.submit)
-            .navigationTitle("Create Account")
+        }
+    }
+}
+
+// Has the form that is used for sign in and create account
+private extension AuthView {
+    struct Form<Content: View, Footer: View>:View {
+        @ViewBuilder let content: () -> Content
+        @ViewBuilder let footer: () -> Footer
+        
+        var body: some View {
+            VStack {
+                Text("Socialacademy")
+                    .font(.title.bold())
+                content()
+                    .padding()
+                    .background(Color.secondary.opacity(0.15))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                footer()
+            }
+            .toolbar(.hidden)
+            .padding()
         }
     }
 }
