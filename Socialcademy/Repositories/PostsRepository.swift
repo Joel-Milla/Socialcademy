@@ -13,6 +13,8 @@ protocol PostsRepositoryProtocol {
     func fetchPosts() async throws -> [Post]
     func create(_ post: Post) async throws
     func delete(_ post: Post) async throws
+    func favorite(_ post: Post) async throws
+    func unfavorite(_ post: Post) async throws
 }
 
 struct PostsRepository: PostsRepositoryProtocol {
@@ -35,6 +37,16 @@ struct PostsRepository: PostsRepositoryProtocol {
     func delete(_ post: Post) async throws {
         let document = postsReference.document(post.id.uuidString)
         try await document.delete()
+    }
+    
+    func favorite(_ post: Post) async throws {
+        let document = postsReference.document(post.id.uuidString)
+        try await document.setData(["isFavorite": true], merge: true)
+    }
+    
+    func unfavorite(_ post: Post) async throws {
+        let document = postsReference.document(post.id.uuidString)
+        try await document.setData(["isFavorite": true], merge: false)
     }
 }
 
@@ -65,5 +77,7 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
     
     func create(_ post: Post) async throws {}
     func delete(_ post: Post) async throws {}
+    func favorite(_ post: Post) async throws {}
+    func unfavorite(_ post: Post) async throws {}
 }
 #endif
