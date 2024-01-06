@@ -9,9 +9,11 @@ import SwiftUI
 
 struct PostRow: View {
     typealias DeleteAction = () async throws -> Void
-
+    
     let post: Post
     var deleteAction: DeleteAction
+    @State private var showConfirmationDialog = false
+    @State private var error: Error?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
@@ -30,15 +32,21 @@ struct PostRow: View {
             Text(post.content)
             HStack {
                 Spacer()
-                Button(role: .destructive) {
-                    deletePost()
-                } label: {
+                Button(role: .destructive, action: {
+                    showConfirmationDialog = true
+                }) {
                     Label("Delete", systemImage: "trash")
-                        .labelStyle(.iconOnly)
                 }
+                .labelStyle(.iconOnly)
+                .buttonStyle(.borderless)
             }
         })
         .padding(.vertical)
+        .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
+            Button(role: .destructive, action: deletePost) {
+                Text("Delete")
+            }
+        }
     }
     
     private func deletePost() {
@@ -47,6 +55,7 @@ struct PostRow: View {
                 try await deleteAction()
             } catch {
                 print("[PostRow] Unable to delete post: \(error)")
+                self.error = error
             }
         }
     }
@@ -54,6 +63,6 @@ struct PostRow: View {
 
 #Preview {
     List {
-        PostRow(post: Post.testPost, deleteAction: {})
+        PostRow(post: Post.testPost[0], deleteAction: {})
     }
 }

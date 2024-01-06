@@ -38,6 +38,7 @@ struct PostsList: View {
                         }
                     }
                     .searchable(text: $searchText)
+                    .animation(.default, value: posts)
                 }
             }
             .toolbar(content: {
@@ -62,7 +63,7 @@ struct PostsList: View {
 #if DEBUG
 struct PostsList_Previews: PreviewProvider {
     static var previews: some View {
-        ListPreview(state: .loaded([Post.testPost]))
+        ListPreview(state: .loaded(Post.testPost))
         ListPreview(state: .empty)
         ListPreview(state: .error)
         ListPreview(state: .loading)
