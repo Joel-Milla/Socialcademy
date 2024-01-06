@@ -25,6 +25,7 @@
 		176471962B48CADE009071D4 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471952B48CADE009071D4 /* EmptyListView.swift */; };
 		1764719A2B48E492009071D4 /* Alert+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176471992B48E492009071D4 /* Alert+Error.swift */; };
 		178F29942B49D4C6000AD59E /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29932B49D4C6000AD59E /* PostRowViewModel.swift */; };
+		178F29962B49E791000AD59E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29952B49E791000AD59E /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		176471952B48CADE009071D4 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		176471992B48E492009071D4 /* Alert+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Error.swift"; sourceTree = "<group>"; };
 		178F29932B49D4C6000AD59E /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
+		178F29952B49E791000AD59E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		1764717F2B487F65009071D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				178F29952B49E791000AD59E /* MainTabView.swift */,
 				176471832B4882A6009071D4 /* PostsList.swift */,
 				176471872B488A92009071D4 /* NewPostForm.swift */,
 				176471852B4884E8009071D4 /* PostRow.swift */,
@@ -260,6 +263,7 @@
 				1764719A2B48E492009071D4 /* Alert+Error.swift in Sources */,
 				176471882B488A92009071D4 /* NewPostForm.swift in Sources */,
 				176471962B48CADE009071D4 /* EmptyListView.swift in Sources */,
+				178F29962B49E791000AD59E /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
