@@ -15,6 +15,7 @@ struct PostRow: View {
     var toggleFavoriteButtonAction: Action
     @State private var showConfirmationDialog = false
     @State private var error: Error?
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack {
@@ -32,15 +33,18 @@ struct PostRow: View {
             Text(post.content)
             HStack {
                 Button(action: {
-                    toggleFavoriteButton()
+                    favoriteAction()
                 }, label: {
                     if post.isFavorite {
-                        Label("Unfavorite post", systemImage: "heart.fill")
+                        Label("Remove from favorites", systemImage: "heart.fill")
                     } else {
-                        Label("Favorite post", systemImage: "heart")
+                        Label("Add to favorites", systemImage: "heart")
                     }
                 })
+                .foregroundStyle(post.isFavorite ? .red : .gray)
+                
                 Spacer()
+
                 Button(role: .destructive, action: {
                     showConfirmationDialog = true
                 }) {
@@ -57,7 +61,7 @@ struct PostRow: View {
             }
         }
         .alert("Cannot Delete Post", error: $error)
-
+        
     }
     
     private func deletePost() {
@@ -71,7 +75,7 @@ struct PostRow: View {
         }
     }
     
-    private func toggleFavoriteButton() {
+    private func favoriteAction() {
         Task {
             do {
                 try await toggleFavoriteButtonAction()
