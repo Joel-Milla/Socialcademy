@@ -10,10 +10,11 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 protocol PostsRepositoryProtocol {
-    func fetchPosts() async throws -> [Post]
     func create(_ post: Post) async throws
+    func fetchAllPosts() async throws -> [Post]
     func delete(_ post: Post) async throws
     func favoriteAction(_ post: Post) async throws
+    func fetchFavoritePosts() async throws -> [Post]
 }
 
 struct PostsRepository: PostsRepositoryProtocol {
@@ -24,13 +25,10 @@ struct PostsRepository: PostsRepositoryProtocol {
         try await document.setData(from: post)
     }
     
-    func fetchPosts() async throws -> [Post] {
-        let snapshot = try await postsReference
+    func fetchAllPosts() async throws -> [Post] {
+        let query = postsReference
             .order(by: "timestamp", descending: true)
-            .getDocuments()
-        return snapshot.documents.compactMap{ document in
-            try! document.data(as: Post.self)
-        }
+        return try await fetchPosts(from: query)
     }
     
     func delete(_ post: Post) async throws {
@@ -45,6 +43,21 @@ struct PostsRepository: PostsRepositoryProtocol {
         } else {
             try await document.setData(["isFavorite": true], merge: true)
         }
+    }
+    
+    func fetchFavoritePosts() async throws -> [Post] {
+        let query = postsReference
+            .order(by: "timestamp", descending: true)
+            .whereField("isFavorite", isEqualTo: true)
+        return try await fetchPosts(from: query)
+    }
+    
+    private func fetchPosts(from query: Query) async throws -> [Post] {
+        let snapshot = try await query.getDocuments()
+        let posts = snapshot.documents.compactMap { document in
+            try! document.data(as: Post.self)
+        }
+        return posts
     }
 }
 
@@ -69,12 +82,14 @@ private extension DocumentReference {
 struct PostsRepositoryStub: PostsRepositoryProtocol {
     let state: Loadable<[Post]>
     
-    func fetchPosts() async throws -> [Post] {
+    func create(_ post: Post) async throws {}
+    func fetchAllPosts() async throws -> [Post] {
         return try await state.simulate()
     }
-    
-    func create(_ post: Post) async throws {}
     func delete(_ post: Post) async throws {}
     func favoriteAction(_ post: Post) async throws {}
+    func fetchFavoritePosts() async throws -> [Post] {
+        return try await state.simulate()
+    }
 }
 #endif
