@@ -27,6 +27,7 @@
 		178F29942B49D4C6000AD59E /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29932B49D4C6000AD59E /* PostRowViewModel.swift */; };
 		178F29962B49E791000AD59E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29952B49E791000AD59E /* MainTabView.swift */; };
 		178F29992B49F53C000AD59E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29982B49F53C000AD59E /* AuthService.swift */; };
+		178F299B2B49F7CA000AD59E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F299A2B49F7CA000AD59E /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		178F29932B49D4C6000AD59E /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
 		178F29952B49E791000AD59E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		178F29982B49F53C000AD59E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		178F299A2B49F7CA000AD59E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				1764718A2B48A110009071D4 /* PostsViewModel.swift */,
 				178F29932B49D4C6000AD59E /* PostRowViewModel.swift */,
+				178F299A2B49F7CA000AD59E /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				176471912B48BFFA009071D4 /* Loadable.swift in Sources */,
 				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 				1764719A2B48E492009071D4 /* Alert+Error.swift in Sources */,
+				178F299B2B49F7CA000AD59E /* AuthViewModel.swift in Sources */,
 				176471882B488A92009071D4 /* NewPostForm.swift in Sources */,
 				176471962B48CADE009071D4 /* EmptyListView.swift in Sources */,
 				178F29962B49E791000AD59E /* MainTabView.swift in Sources */,
