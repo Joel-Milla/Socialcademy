@@ -32,17 +32,32 @@ private extension AuthView {
         @ViewBuilder let footer: () -> Footer
         
         var body: some View {
-            Form {
-                TextField("Email", text: $authViewModel.email)
-                    .textContentType(.emailAddress)
-                    .textInputAutocapitalization(.never)
-                SecureField("Password", text: $authViewModel.password)
-                    .textContentType(.password)
+            VStack {
+                Text("Socialacademy")
+                    .font(.title.bold())
+                Group {
+                    TextField("Email", text: $authViewModel.email)
+                        .textContentType(.emailAddress)
+                        .textInputAutocapitalization(.never)
+                    SecureField("Password", text: $authViewModel.password)
+                        .textContentType(.password)
+                }
+                .padding()
+                .background(Color.secondary.opacity(0.15))
+                .cornerRadius(10)
+                
                 Button("Sign In", action: authViewModel.submit)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(.white)
+                    .background(Color.accentColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 footer()
+                    .padding()
             }
+            .toolbar(.hidden)
             .onSubmit(authViewModel.submit)
-            .navigationTitle("Sign In")
+            .padding()
         }
     }
 
