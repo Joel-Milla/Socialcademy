@@ -40,7 +40,7 @@ private extension AuthView {
                     .textContentType(.password)
             } footer: {
                 Button("Sign In", action: authViewModel.submit)
-                    .buttonStyle(PrimaryButtonStyle())
+                    .buttonStyle(.primary)
                 footer()
                     .padding()
             }
@@ -62,7 +62,7 @@ private extension AuthView {
                     .textContentType(.newPassword)
             } footer: {
                 Button("Create Account", action: authViewModel.submit)
-                    .buttonStyle(PrimaryButtonStyle())
+                    .buttonStyle(.primary)
             }
         }
     }
@@ -87,6 +87,13 @@ private extension AuthView {
             .toolbar(.hidden)
             .padding()
         }
+    }
+}
+
+// Extension so instead of doing .buttonStyle(PrimaryButtonStyle()), we do -> .buttonStyle(.primary)
+extension ButtonStyle where Self == PrimaryButtonStyle {
+    static var primary: PrimaryButtonStyle {
+        PrimaryButtonStyle()
     }
 }
 
