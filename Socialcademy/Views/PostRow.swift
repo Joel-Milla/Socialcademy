@@ -54,28 +54,6 @@ struct PostRow: View {
         .alert("Cannot Delete Post", error: $error)
         
     }
-    
-    private func deletePost() {
-        Task {
-            do {
-                try await deleteAction()
-            } catch {
-                print("[PostRow] Unable to delete post: \(error)")
-                self.error = error
-            }
-        }
-    }
-    
-    private func favoriteAction() {
-        Task {
-            do {
-                try await toggleFavoriteButtonAction()
-            } catch {
-                print("[PostRow] Unable to update post of favorite: \(error)")
-                self.error = error
-            }
-        }
-    }
 }
 
 // Button to remove/add a post from/to favorites.

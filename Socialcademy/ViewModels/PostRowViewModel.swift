@@ -8,6 +8,8 @@
 import Foundation
 
 @MainActor
+@dynamicMemberLookup
+
 class PostRowViewModel: ObservableObject {
     typealias Action = () async throws -> Void
     
@@ -23,4 +25,29 @@ class PostRowViewModel: ObservableObject {
         self.deleteAction = deleteAction
         self.favoriteAction = favoriteAction
     }
+    
+    func deletePost() {
+        withErrorHandlingTask(perform: deleteAction)
+    }
+
+    func favoritePost() {
+        withErrorHandlingTask(perform: favoriteAction)
+    }
+    
+    private func withErrorHandlingTask(perform action: @escaping Action) {
+        Task {
+            do {
+                try await action()
+            } catch {
+                print("[PostRow] Unable to delete post: \(error)")
+                self.error = error
+            }
+        }
+    }
+    
+    // Function to instead of using viewModel.post.content -> only use post.content
+    subscript<T>(dynamicMember keyPath: KeyPath<Post, T>) -> T {
+        post[keyPath: keyPath]
+    }
 }
+
