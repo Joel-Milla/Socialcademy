@@ -32,17 +32,8 @@ struct PostRow: View {
                 .fontWeight(.semibold)
             Text(post.content)
             HStack {
-                Button(action: {
-                    favoriteAction()
-                }, label: {
-                    if post.isFavorite {
-                        Label("Remove from favorites", systemImage: "heart.fill")
-                    } else {
-                        Label("Add to favorites", systemImage: "heart")
-                    }
-                })
-                .foregroundStyle(post.isFavorite ? .red : .gray)
-                
+                FavoriteButton(isFavorite: post.isFavorite, action: favoriteAction)
+
                 Spacer()
 
                 Button(role: .destructive, action: {
@@ -83,6 +74,27 @@ struct PostRow: View {
                 print("[PostRow] Unable to update post of favorite: \(error)")
                 self.error = error
             }
+        }
+    }
+}
+
+// Button to remove/add a post from/to favorites.
+private extension PostRow {
+    struct FavoriteButton: View {
+        let isFavorite: Bool
+        let action: () -> Void
+    
+        var body: some View {
+            Button(action: {
+                action()
+            }, label: {
+                if isFavorite {
+                    Label("Remove from favorites", systemImage: "heart.fill")
+                } else {
+                    Label("Add to favorites", systemImage: "heart")
+                }
+            })
+            .foregroundStyle(isFavorite ? .red : .gray)
         }
     }
 }
