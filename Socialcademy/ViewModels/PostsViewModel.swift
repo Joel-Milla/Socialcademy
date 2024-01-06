@@ -13,6 +13,15 @@ class PostsViewModel: ObservableObject {
     private let filter: Filter
     private let postsRepository: PostsRepositoryProtocol
     
+    var title: String {
+        switch filter {
+        case .all:
+            return "Posts"
+        case .favorites:
+            return "Favorites"
+        }
+    }
+    
     init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
         self.filter = filter
         self.postsRepository = postsRepository

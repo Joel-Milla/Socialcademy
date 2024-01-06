@@ -53,7 +53,7 @@ struct PostsList: View {
             .sheet(isPresented: $showNewPostForm, content: {
                 NewPostForm(createAction: postViewModel.makeCreateAction())
             })
-            .navigationTitle("Posts")
+            .navigationTitle(postViewModel.title)
         }
         .onAppear(perform: {
             postViewModel.fetchPosts()
