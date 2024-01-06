@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PostRow: View {
-    typealias DeleteAction = () async throws -> Void
+    typealias Action = () async throws -> Void
     
     let post: Post
-    var deleteAction: DeleteAction
+    var deleteAction: Action
+    var toggleFavoriteButtonAction: Action
     @State private var showConfirmationDialog = false
     @State private var error: Error?
     var body: some View {
@@ -30,15 +31,24 @@ struct PostRow: View {
                 .fontWeight(.semibold)
             Text(post.content)
             HStack {
+                Button(action: {
+                    toggleFavoriteButton()
+                }, label: {
+                    if post.isFavorite {
+                        Label("Unfavorite post", systemImage: "heart.fill")
+                    } else {
+                        Label("Favorite post", systemImage: "heart")
+                    }
+                })
                 Spacer()
                 Button(role: .destructive, action: {
                     showConfirmationDialog = true
                 }) {
                     Label("Delete", systemImage: "trash")
                 }
-                .labelStyle(.iconOnly)
-                .buttonStyle(.borderless)
             }
+            .labelStyle(.iconOnly)
+            .buttonStyle(.borderless)
         })
         .padding(.vertical)
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
@@ -60,10 +70,21 @@ struct PostRow: View {
             }
         }
     }
+    
+    private func toggleFavoriteButton() {
+        Task {
+            do {
+                try await toggleFavoriteButtonAction()
+            } catch {
+                print("[PostRow] Unable to update post of favorite: \(error)")
+                self.error = error
+            }
+        }
+    }
 }
 
 #Preview {
     List {
-        PostRow(post: Post.testPost[0], deleteAction: {})
+        PostRow(post: Post.testPost[0], deleteAction: {}, toggleFavoriteButtonAction: {})
     }
 }
