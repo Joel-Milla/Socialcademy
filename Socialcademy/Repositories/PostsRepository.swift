@@ -78,6 +78,8 @@ private extension DocumentReference {
     }
 }
 
+
+
 #if DEBUG
 struct PostsRepositoryStub: PostsRepositoryProtocol {
     let state: Loadable<[Post]>

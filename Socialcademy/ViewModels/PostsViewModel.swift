@@ -10,16 +10,19 @@ import Foundation
 @MainActor
 class PostsViewModel: ObservableObject {
     @Published var posts: Loadable<[Post]> = .loading
+    private let filter: Filter
     private let postsRepository: PostsRepositoryProtocol
     
-    init(postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+        self.filter = filter
         self.postsRepository = postsRepository
     }
+
     
     func fetchPosts() {
         Task {
             do {
-                self.posts = .loaded(try await postsRepository.fetchAllPosts())
+                self.posts = .loaded(try await postsRepository.fetchPosts(matching: filter))
             } catch {
                 print("[PostsViewModel] Cannot fetch posts: \(error)")
                 posts = .error(error)
@@ -45,5 +48,23 @@ class PostsViewModel: ObservableObject {
             guard let index = self?.posts.value?.firstIndex(of: post) else { return }
             self?.posts.value?[index].isFavorite.toggle()
         })
+    }
+}
+
+extension PostsViewModel {
+    enum Filter {
+        case all, favorites
+    }
+}
+
+// Extension that calls the correct method from the protocol given the filter.
+private extension PostsRepositoryProtocol {
+    func fetchPosts(matching filter: PostsViewModel.Filter) async throws -> [Post] {
+        switch filter {
+        case .all:
+            try await fetchAllPosts()
+        case .favorites:
+            try await fetchFavoritePosts()
+        }
     }
 }
