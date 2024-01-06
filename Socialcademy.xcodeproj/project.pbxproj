@@ -76,9 +76,9 @@
 		176471632B487D11009071D4 /* Socialcademy */ = {
 			isa = PBXGroup;
 			children = (
-				176471922B48CAB9009071D4 /* Supporting Views */,
 				176471642B487D11009071D4 /* SocialcademyApp.swift */,
 				1764717F2B487F65009071D4 /* Views */,
+				176471922B48CAB9009071D4 /* Supporting Views */,
 				176471892B48A0FC009071D4 /* ViewModels */,
 				1764718C2B48A7D1009071D4 /* Repositories */,
 				176471802B4880BD009071D4 /* Model */,
@@ -117,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				176471832B4882A6009071D4 /* PostsList.swift */,
-				176471952B48CADE009071D4 /* EmptyListView.swift */,
 				176471872B488A92009071D4 /* NewPostForm.swift */,
 				176471852B4884E8009071D4 /* PostRow.swift */,
 			);
@@ -159,6 +158,7 @@
 		176471922B48CAB9009071D4 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				176471952B48CADE009071D4 /* EmptyListView.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
