@@ -40,11 +40,7 @@ private extension AuthView {
                     .textContentType(.password)
             } footer: {
                 Button("Sign In", action: authViewModel.submit)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .foregroundStyle(.white)
-                    .background(Color.accentColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .buttonStyle(PrimaryButtonStyle())
                 footer()
                     .padding()
             }
@@ -66,6 +62,7 @@ private extension AuthView {
                     .textContentType(.newPassword)
             } footer: {
                 Button("Create Account", action: authViewModel.submit)
+                    .buttonStyle(PrimaryButtonStyle())
             }
         }
     }
