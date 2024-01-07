@@ -14,9 +14,7 @@ struct PostRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack {
-                Text(postRowViewModel.author.name)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                AuthorView(author: postRowViewModel.author)
                 Spacer()
                 Text(postRowViewModel.timestamp.formatted(date: .abbreviated, time: .shortened))
                     .font(.caption)
@@ -49,6 +47,25 @@ struct PostRow: View {
             }
         }
         .alert("Error", error: $postRowViewModel.error)
+    }
+}
+
+// Extension that shows the name of the author and a link to show all the authors posts.
+private extension PostRow {
+    struct AuthorView: View {
+        let author: User
+        @EnvironmentObject private var factory: ViewModelFactory
+
+        var body: some View {
+            NavigationLink {
+                PostsList(postViewModel: factory.makePostsViewModel(filter: .author(author)))
+            } label: {
+                Text(author.name)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+            }
+
+        }
     }
 }
 
