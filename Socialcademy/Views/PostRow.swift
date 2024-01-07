@@ -31,10 +31,12 @@ struct PostRow: View {
 
                 Spacer()
 
-                Button(role: .destructive, action: {
-                    showConfirmationDialog = true
-                }) {
-                    Label("Delete", systemImage: "trash")
+                if postRowViewModel.canDeletePost {
+                    Button(role: .destructive, action: {
+                        showConfirmationDialog = true
+                    }) {
+                            Label("Delete", systemImage: "trash")
+                    }
                 }
             }
             .labelStyle(.iconOnly)
