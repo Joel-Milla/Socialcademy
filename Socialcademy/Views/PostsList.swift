@@ -13,50 +13,48 @@ struct PostsList: View {
     @State private var showNewPostForm = false
     
     var body: some View {
-        NavigationStack {
-            Group {
-                switch postViewModel.posts {
-                case .loading:
-                    ProgressView()
-                case let .error(error):
-                    EmptyListView(
-                        title: "Cannot Load Posts",
-                        message: error.localizedDescription,
-                        retryAction: {
-                            postViewModel.fetchPosts()
-                        }
-                    )
-                case .empty:
-                    EmptyListView(
-                        title: "No Posts",
-                        message: "There aren’t any posts yet."
-                    )
-                case let .loaded(posts):
-                    ScrollView {
-                        ForEach(posts) { post in
-                            if searchText.isEmpty || post.contains(searchText) {
-                                PostRow(postRowViewModel: postViewModel.makePostRowViewModel(for: post))
-                            }
-                        }
-                        .searchable(text: $searchText)
-                        .animation(.default, value: posts)
+        Group {
+            switch postViewModel.posts {
+            case .loading:
+                ProgressView()
+            case let .error(error):
+                EmptyListView(
+                    title: "Cannot Load Posts",
+                    message: error.localizedDescription,
+                    retryAction: {
+                        postViewModel.fetchPosts()
                     }
+                )
+            case .empty:
+                EmptyListView(
+                    title: "No Posts",
+                    message: "There aren’t any posts yet."
+                )
+            case let .loaded(posts):
+                ScrollView {
+                    ForEach(posts) { post in
+                        if searchText.isEmpty || post.contains(searchText) {
+                            PostRow(postRowViewModel: postViewModel.makePostRowViewModel(for: post))
+                        }
+                    }
+                    .searchable(text: $searchText)
+                    .animation(.default, value: posts)
                 }
             }
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        showNewPostForm = true
-                    }, label: {
-                        Label("New Post", systemImage: "square.and.pencil")
-                    })
-                }
-            })
-            .sheet(isPresented: $showNewPostForm, content: {
-                NewPostForm(newPostViewModel: postViewModel.makeNewPostViewModel())
-            })
-            .navigationTitle(postViewModel.title)
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    showNewPostForm = true
+                }, label: {
+                    Label("New Post", systemImage: "square.and.pencil")
+                })
+            }
+        })
+        .sheet(isPresented: $showNewPostForm, content: {
+            NewPostForm(newPostViewModel: postViewModel.makeNewPostViewModel())
+        })
+        .navigationTitle(postViewModel.title)
         .onAppear(perform: {
             postViewModel.fetchPosts()
         })

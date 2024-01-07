@@ -12,11 +12,15 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            PostsList(postViewModel: factory.makePostsViewModel())
+            NavigationStack {
+                PostsList(postViewModel: factory.makePostsViewModel())
+            }
                 .tabItem {
                     Label("Posts", systemImage: "list.dash")
                 }
-            PostsList(postViewModel: factory.makePostsViewModel(filter: .favorites))
+            NavigationStack {
+                PostsList(postViewModel: factory.makePostsViewModel(filter: .favorites))
+            }
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
                 }
