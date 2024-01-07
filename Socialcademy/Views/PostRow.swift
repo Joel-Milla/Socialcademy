@@ -14,7 +14,7 @@ struct PostRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack {
-                Text(postRowViewModel.authorName)
+                Text(postRowViewModel.author.name)
                     .font(.subheadline)
                     .fontWeight(.medium)
                 Spacer()
@@ -73,6 +73,6 @@ private extension PostRow {
 
 #Preview {
     List {
-        PostRow(postRowViewModel: PostRowViewModel(post: Post.testPost[0], deleteAction: {}, favoriteAction: {}))
+        PostRow(postRowViewModel: PostRowViewModel(post: Post.testPost, deleteAction: {}, favoriteAction: {}))
     }
 }

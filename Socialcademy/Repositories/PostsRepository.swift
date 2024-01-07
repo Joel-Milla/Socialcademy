@@ -9,12 +9,14 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+// This file has the functions that connect with the database.
 protocol PostsRepositoryProtocol {
     func create(_ post: Post) async throws
     func fetchAllPosts() async throws -> [Post]
     func delete(_ post: Post) async throws
     func favoriteAction(_ post: Post) async throws
     func fetchFavoritePosts() async throws -> [Post]
+    var user: User { get }
 }
 
 struct PostsRepository: PostsRepositoryProtocol {
@@ -59,6 +61,8 @@ struct PostsRepository: PostsRepositoryProtocol {
         }
         return posts
     }
+    
+    let user: User
 }
 
 
@@ -93,5 +97,6 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
     func fetchFavoritePosts() async throws -> [Post] {
         return try await state.simulate()
     }
+    var user = User.testUser
 }
 #endif

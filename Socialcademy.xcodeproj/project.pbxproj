@@ -33,6 +33,7 @@
 		178F29A12B49FB6C000AD59E /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A02B49FB6C000AD59E /* FormViewModel.swift */; };
 		178F29A52B4A0999000AD59E /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A42B4A0999000AD59E /* PrimaryButtonStyle.swift */; };
 		178F29A72B4A304C000AD59E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A62B4A304C000AD59E /* User.swift */; };
+		178F29AA2B4A363F000AD59E /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A92B4A363F000AD59E /* ViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		178F29A02B49FB6C000AD59E /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		178F29A42B4A0999000AD59E /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		178F29A62B4A304C000AD59E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		178F29A92B4A363F000AD59E /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				1764718A2B48A110009071D4 /* PostsViewModel.swift */,
 				178F29932B49D4C6000AD59E /* PostRowViewModel.swift */,
 				178F299A2B49F7CA000AD59E /* AuthViewModel.swift */,
+				178F29A92B4A363F000AD59E /* ViewModelFactory.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 				1764719A2B48E492009071D4 /* Alert+Error.swift in Sources */,
 				178F299B2B49F7CA000AD59E /* AuthViewModel.swift in Sources */,
+				178F29AA2B4A363F000AD59E /* ViewModelFactory.swift in Sources */,
 				178F299D2B49F90D000AD59E /* AuthView.swift in Sources */,
 				176471882B488A92009071D4 /* NewPostForm.swift in Sources */,
 				178F29A12B49FB6C000AD59E /* FormViewModel.swift in Sources */,

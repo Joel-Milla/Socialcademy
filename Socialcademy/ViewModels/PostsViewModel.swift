@@ -8,6 +8,7 @@
 import Foundation
 
 @MainActor
+// This class contains the posts and the functions in charge of interacting with the repository to get the posts.
 class PostsViewModel: ObservableObject {
     @Published var posts: Loadable<[Post]> = .loading
     private let filter: Filter
@@ -22,7 +23,7 @@ class PostsViewModel: ObservableObject {
         }
     }
     
-    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol) {
         self.filter = filter
         self.postsRepository = postsRepository
     }

@@ -11,8 +11,9 @@ struct AuthView: View {
     @StateObject var authViewModel = AuthViewModel()
     
     var body: some View {
-        if authViewModel.isAuthenticated {
+        if let user = authViewModel.user {
             MainTabView()
+                .environmentObject(ViewModelFactory(user: user))
         } else {
             NavigationStack {
                 // Call the structure sign in, give the parameters, and give footer at the end.
