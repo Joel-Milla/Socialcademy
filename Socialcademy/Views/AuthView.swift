@@ -15,9 +15,10 @@ struct AuthView: View {
             MainTabView()
         } else {
             NavigationStack {
-                SignIn(authViewModel: authViewModel.makeSignInViewModel()) {
+                // Call the structure sign in, give the parameters, and give footer at the end.
+                SignIn(signInViewModel: authViewModel.makeSignInViewModel()) {
                     NavigationLink("Create account") {
-                        CreateAccount(authViewModel: authViewModel.makeCreateAccountViewModel())
+                        CreateAccount(createAccountViewModel: authViewModel.makeCreateAccountViewModel())
                     }
                 }
             }
@@ -27,43 +28,52 @@ struct AuthView: View {
 
 // Sign in and create acocunt views
 private extension AuthView {
+    // View for signin in
     struct SignIn<Footer: View>: View {
-        @StateObject var authViewModel: AuthViewModel.SignInViewModel
+        @StateObject var signInViewModel: AuthViewModel.SignInViewModel
         @ViewBuilder let footer: () -> Footer
         
         var body: some View {
             Form {
-                TextField("Email", text: $authViewModel.email)
+                TextField("Email", text: $signInViewModel.email)
                     .textContentType(.emailAddress)
                     .textInputAutocapitalization(.never)
-                SecureField("Password", text: $authViewModel.password)
+                SecureField("Password", text: $signInViewModel.password)
                     .textContentType(.password)
             } footer: {
-                Button("Sign In", action: authViewModel.submit)
+                Button("Sign In", action: signInViewModel.submit)
                     .buttonStyle(.primary)
                 footer()
                     .padding()
             }
+            .alert("Cannot Sign In", error: $signInViewModel.error)
+            .disabled(signInViewModel.isWorking)
         }
     }
     
+    // View for creating the account
     struct CreateAccount: View {
-        @StateObject var authViewModel: AuthViewModel.CreateAccountViewModel
+        @StateObject var createAccountViewModel: AuthViewModel.CreateAccountViewModel
+        @Environment(\.dismiss) private var dismiss
         
         var body: some View {
             Form {
-                TextField("Name", text: $authViewModel.name)
+                TextField("Name", text: $createAccountViewModel.name)
                     .textContentType(.name)
                     .textInputAutocapitalization(.words)
-                TextField("Email", text: $authViewModel.email)
+                TextField("Email", text: $createAccountViewModel.email)
                     .textContentType(.emailAddress)
                     .textInputAutocapitalization(.never)
-                SecureField("Password", text: $authViewModel.password)
+                SecureField("Password", text: $createAccountViewModel.password)
                     .textContentType(.newPassword)
             } footer: {
-                Button("Create Account", action: authViewModel.submit)
+                Button("Create Account", action: createAccountViewModel.submit)
                     .buttonStyle(.primary)
+                Button("Sign In", action: dismiss.callAsFunction)
+                    .padding()
             }
+            .alert("Cannot Create Account", error: $createAccountViewModel.error)
+            .disabled(createAccountViewModel.isWorking)
         }
     }
 }
