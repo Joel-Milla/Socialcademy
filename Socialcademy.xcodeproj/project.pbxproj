@@ -32,6 +32,7 @@
 		178F299F2B49F9E5000AD59E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F299E2B49F9E5000AD59E /* ProfileView.swift */; };
 		178F29A12B49FB6C000AD59E /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A02B49FB6C000AD59E /* FormViewModel.swift */; };
 		178F29A52B4A0999000AD59E /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A42B4A0999000AD59E /* PrimaryButtonStyle.swift */; };
+		178F29A72B4A304C000AD59E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A62B4A304C000AD59E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		178F299E2B49F9E5000AD59E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		178F29A02B49FB6C000AD59E /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		178F29A42B4A0999000AD59E /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		178F29A62B4A304C000AD59E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				176471812B48810A009071D4 /* Post.swift */,
+				178F29A62B4A304C000AD59E /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				178F29A12B49FB6C000AD59E /* FormViewModel.swift in Sources */,
 				176471962B48CADE009071D4 /* EmptyListView.swift in Sources */,
 				178F29962B49E791000AD59E /* MainTabView.swift in Sources */,
+				178F29A72B4A304C000AD59E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
