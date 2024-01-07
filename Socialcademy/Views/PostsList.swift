@@ -51,7 +51,7 @@ struct PostsList: View {
                 }
             })
             .sheet(isPresented: $showNewPostForm, content: {
-                NewPostForm(createAction: postViewModel.makeCreateAction())
+                NewPostForm(newPostViewModel: postViewModel.makeNewPostViewModel())
             })
             .navigationTitle(postViewModel.title)
         }
@@ -63,7 +63,7 @@ struct PostsList: View {
 #if DEBUG
 struct PostsList_Previews: PreviewProvider {
     static var previews: some View {
-        ListPreview(state: .loaded(Post.testPost))
+        ListPreview(state: .loaded([Post.testPost]))
         ListPreview(state: .empty)
         ListPreview(state: .error)
         ListPreview(state: .loading)

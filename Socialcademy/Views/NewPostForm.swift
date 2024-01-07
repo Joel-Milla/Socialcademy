@@ -22,7 +22,7 @@ struct NewPostForm: View {
                         .multilineTextAlignment(.leading)
                 }
                 
-                Button(action: createPost, label: {
+                Button(action: newPostViewModel.submit, label: {
                     if newPostViewModel.isWorking {
                         ProgressView()
                     } else {
@@ -39,8 +39,10 @@ struct NewPostForm: View {
             .navigationTitle("New Post")
         }
         .disabled(newPostViewModel.isWorking)
-        .alert("Cannot Create Post", isPresented: $newPostViewModel.isError, actions: {}) {
-            Text("Sorry, something went wrong.")
+        .alert("Cannot Create Post", error: $newPostViewModel.error)
+        .onChange(of: newPostViewModel.isWorking) { isWorking in
+            guard !isWorking, newPostViewModel.error == nil else { return }
+            dismiss()
         }
     }
 }
