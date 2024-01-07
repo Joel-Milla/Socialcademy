@@ -8,28 +8,22 @@
 import SwiftUI
 
 struct NewPostForm: View {
-    typealias CreateAction = (Post) async throws -> Void
-    let createAction: CreateAction
-    
-    @State private var post = Post(title: "", content: "", authorName: "")
-    
-    @State private var state: FormState = .idle
+    @StateObject var newPostViewModel: FormViewModel<Post>
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Title", text: $post.title)
-                    TextField("Author Name", text: $post.authorName)
+                    TextField("Title", text: $newPostViewModel.title)
                 }
                 Section("Content") {
-                    TextEditor(text: $post.content)
+                    TextEditor(text: $newPostViewModel.content)
                         .multilineTextAlignment(.leading)
                 }
                 
                 Button(action: createPost, label: {
-                    if state == .working {
+                    if newPostViewModel.isWorking {
                         ProgressView()
                     } else {
                         Text("Create Post")
@@ -41,46 +35,16 @@ struct NewPostForm: View {
                 .padding()
                 .listRowBackground(Color.accentColor)
             }
-            .onSubmit(createPost)
+            .onSubmit(newPostViewModel.submit)
             .navigationTitle("New Post")
         }
-        .disabled(state == .working)
-        .alert("Cannot Create Post", isPresented: $state.isError, actions: {}) {
+        .disabled(newPostViewModel.isWorking)
+        .alert("Cannot Create Post", isPresented: $newPostViewModel.isError, actions: {}) {
             Text("Sorry, something went wrong.")
-        }
-    }
-    
-    private func createPost() {
-        state = .working
-        Task {
-            do {
-                try await createAction(post)
-                dismiss()
-            } catch {
-                print("[NewPostFrom] Error while creating a post: \(error)")
-                state = .error
-            }
-        }
-    }
-}
-
-private extension NewPostForm {
-    // Form state of request
-    enum FormState {
-        case idle, working, error
-        
-        var isError: Bool {
-            get {
-                self == .error
-            }
-            set {
-                guard !newValue else {return}
-                self = .idle
-            }
         }
     }
 }
 
 #Preview {
-    NewPostForm(createAction: {_ in })
+    NewPostForm(newPostViewModel: FormViewModel(initialValue: Post.testPost, action: {_ in}))
 }
