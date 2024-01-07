@@ -14,18 +14,28 @@ class AuthService: ObservableObject {
     
     private let auth = Auth.auth()
     private var listener: AuthStateDidChangeListenerHandle?
+    private var name = ""
     
     init() {
-        // this variable listens to the changes on the user authentication and assigns the current user to the property user of AuthService
-        listener = auth.addStateDidChangeListener({ [weak self] _, user in
-            self?.user = user.map(User.init(from:))
+        // this variable listens to the changes on the user authentication and assigns the current user to the property user of AuthService. The user after the _, is the user saved in the firebaseToken (the displayName, userID, emailVerified, etc.. and all the metadata.
+        listener = auth.addStateDidChangeListener({ _, firebaseUser in
+            if let firebaseUser = firebaseUser {
+                if !self.name.isEmpty {
+                    self.user = User(from: firebaseUser, name: self.name)
+                } else {
+                    self.user = User(from: firebaseUser)
+                }
+            } else {
+                // Handle the scenario where firebaseUser is nil
+                self.user = nil // or some default initialization
+            }
         })
     }
     
     func createAccount(name: String, email: String, password: String) async throws {
+        self.name = name
         let result = try await auth.createUser(withEmail: email, password: password)
         try await result.user.updateProfile(\.displayName, to: name)
-        user?.name = name
     }
     
     func signIn(email: String, password: String) async throws {
@@ -47,8 +57,8 @@ private extension FirebaseAuth.User {
 }
 
 private extension User {
-    init(from firebaseUser: FirebaseAuth.User) {
-        self.id = firebaseUser.uid
-        self.name = firebaseUser.displayName ?? ""
-    }
+    init(from firebaseUser: FirebaseAuth.User, name: String? = nil) {
+            self.id = firebaseUser.uid
+            self.name = firebaseUser.displayName ?? name ?? "Unknown"
+        }
 }
