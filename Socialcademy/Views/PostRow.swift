@@ -26,21 +26,21 @@ struct PostRow: View {
             Text(postRowViewModel.content)
             HStack {
                 FavoriteButton(isFavorite: postRowViewModel.isFavorite, action: {postRowViewModel.favoritePost()})
-
+                
                 Spacer()
-
+                
                 if postRowViewModel.canDeletePost {
                     Button(role: .destructive, action: {
                         showConfirmationDialog = true
                     }) {
-                            Label("Delete", systemImage: "trash")
+                        Label("Delete", systemImage: "trash")
                     }
                 }
             }
             .labelStyle(.iconOnly)
-            .buttonStyle(.borderless)
+            
         })
-        .padding(.vertical)
+        .padding()
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
             Button(role: .destructive, action: {postRowViewModel.deletePost()}) {
                 Text("Delete")
@@ -55,7 +55,7 @@ private extension PostRow {
     struct AuthorView: View {
         let author: User
         @EnvironmentObject private var factory: ViewModelFactory
-
+        
         var body: some View {
             NavigationLink {
                 PostsList(postViewModel: factory.makePostsViewModel(filter: .author(author)))
@@ -64,7 +64,7 @@ private extension PostRow {
                     .font(.subheadline)
                     .fontWeight(.medium)
             }
-
+            
         }
     }
 }
@@ -74,7 +74,7 @@ private extension PostRow {
     struct FavoriteButton: View {
         let isFavorite: Bool
         let action: () -> Void
-    
+        
         var body: some View {
             Button(action: {
                 action()
@@ -91,7 +91,5 @@ private extension PostRow {
 }
 
 #Preview {
-    List {
-        PostRow(postRowViewModel: PostRowViewModel(post: Post.testPost, deleteAction: {}, favoriteAction: {}))
-    }
+    PostRow(postRowViewModel: PostRowViewModel(post: Post.testPost, deleteAction: {}, favoriteAction: {}))
 }
