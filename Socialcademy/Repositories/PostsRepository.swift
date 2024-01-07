@@ -17,6 +17,7 @@ protocol PostsRepositoryProtocol {
     func favoriteAction(_ post: Post) async throws
     func fetchFavoritePosts() async throws -> [Post]
     var user: User { get }
+    func fetchPosts(by author: User) async throws -> [Post]
 }
 
 struct PostsRepository: PostsRepositoryProtocol {
@@ -64,6 +65,13 @@ struct PostsRepository: PostsRepositoryProtocol {
     }
     
     let user: User
+    
+    func fetchPosts(by author: User) async throws -> [Post] {
+        let query = postsReference
+            .order(by: "timestamp", descending: true)
+            .whereField("author.id", isEqualTo: author.id)
+        return try await fetchPosts(from: query)
+    }
 }
 
 // Precondition to know if can delete the post
@@ -105,5 +113,8 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
         return try await state.simulate()
     }
     var user = User.testUser
+    func fetchPosts(by author: User) async throws -> [Post] {
+        return try await state.simulate()
+    }
 }
 #endif
