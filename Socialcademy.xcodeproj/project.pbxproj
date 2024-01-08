@@ -39,6 +39,7 @@
 		178FE0F22B4C792C00E028E1 /* Firestore+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F12B4C792C00E028E1 /* Firestore+Extensions.swift */; };
 		178FE0F42B4C850800E028E1 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F32B4C850800E028E1 /* CommentsViewModel.swift */; };
 		178FE0F62B4C867400E028E1 /* CommentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F52B4C867400E028E1 /* CommentsList.swift */; };
+		178FE0F82B4C88BB00E028E1 /* CommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F72B4C88BB00E028E1 /* CommentRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		178FE0F12B4C792C00E028E1 /* Firestore+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extensions.swift"; sourceTree = "<group>"; };
 		178FE0F32B4C850800E028E1 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 		178FE0F52B4C867400E028E1 /* CommentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsList.swift; sourceTree = "<group>"; };
+		178FE0F72B4C88BB00E028E1 /* CommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				176471852B4884E8009071D4 /* PostRow.swift */,
 				178F299E2B49F9E5000AD59E /* ProfileView.swift */,
 				178FE0F52B4C867400E028E1 /* CommentsList.swift */,
+				178FE0F72B4C88BB00E028E1 /* CommentRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				178FE0F02B4C77B100E028E1 /* CommentsRepository.swift in Sources */,
 				178F29942B49D4C6000AD59E /* PostRowViewModel.swift in Sources */,
 				176471822B48810A009071D4 /* Post.swift in Sources */,
+				178FE0F82B4C88BB00E028E1 /* CommentRow.swift in Sources */,
 				176471652B487D11009071D4 /* SocialcademyApp.swift in Sources */,
 				1764718E2B48A7E4009071D4 /* PostsRepository.swift in Sources */,
 				1764718B2B48A110009071D4 /* PostsViewModel.swift in Sources */,
