@@ -27,7 +27,7 @@ struct CommentsList: View {
                 EmptyListView(title: "No comments", message: "Be the first to leave a comment.")
             case let .loaded(comments):
                 List(comments) { comment in
-                    Text(comment.content)
+                    CommentRow(comment: comment)
                 }
                 .animation(.default, value: comments)
             }
