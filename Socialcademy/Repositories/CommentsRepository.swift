@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 protocol CommentsRepositoryProtocol {
     var user: User { get }
@@ -15,10 +17,31 @@ protocol CommentsRepositoryProtocol {
     func delete(_ comment: Comment) async throws
 }
 
-
 extension CommentsRepositoryProtocol {
     func canDelete(_ comment: Comment) -> Bool {
         [comment.author.id, post.author.id].contains(user.id)
+    }
+}
+
+struct CommentsRepository: CommentsRepositoryProtocol {
+    private var commentsReference: CollectionReference {
+        let postsReference = Firestore.firestore().collection("posts")
+        let document = postsReference.document(post.id.uuidString)
+        return document.collection("comments")
+    }
+    let user: User
+    let post: Post
+    
+    func fetchComments() async throws -> [Comment] {
+        return []
+    }
+    
+    func create(_ comment: Comment) async throws {
+        
+    }
+    
+    func delete(_ comment: Comment) async throws {
+        
     }
 }
 
