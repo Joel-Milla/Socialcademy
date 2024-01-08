@@ -42,6 +42,7 @@
 		178FE0F82B4C88BB00E028E1 /* CommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F72B4C88BB00E028E1 /* CommentRow.swift */; };
 		178FE1052B4C99B300E028E1 /* CommentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1042B4C99B300E028E1 /* CommentRowViewModel.swift */; };
 		178FE1072B4C9B4C00E028E1 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */; };
+		178FE1252B4CBD8300E028E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 178FE1242B4CBD8300E028E1 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 				176471742B487D51009071D4 /* FirebaseAnalytics in Frameworks */,
 				176471772B487D93009071D4 /* FirebaseAuth in Frameworks */,
 				176471792B487D93009071D4 /* FirebaseFirestore in Frameworks */,
+				178FE1252B4CBD8300E028E1 /* FirebaseStorage in Frameworks */,
 				1764717B2B487D93009071D4 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +251,7 @@
 				176471762B487D93009071D4 /* FirebaseAuth */,
 				176471782B487D93009071D4 /* FirebaseFirestore */,
 				1764717A2B487D93009071D4 /* FirebaseFirestoreSwift */,
+				178FE1242B4CBD8300E028E1 /* FirebaseStorage */,
 			);
 			productName = Socialcademy;
 			productReference = 176471612B487D11009071D4 /* Socialcademy.app */;
@@ -581,6 +584,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 176471722B487D51009071D4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		178FE1242B4CBD8300E028E1 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 176471722B487D51009071D4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
