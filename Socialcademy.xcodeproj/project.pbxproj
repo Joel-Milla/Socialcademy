@@ -36,6 +36,7 @@
 		178F29AA2B4A363F000AD59E /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A92B4A363F000AD59E /* ViewModelFactory.swift */; };
 		178FE0EE2B4C71E200E028E1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0ED2B4C71E200E028E1 /* Comment.swift */; };
 		178FE0F02B4C77B100E028E1 /* CommentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0EF2B4C77B100E028E1 /* CommentsRepository.swift */; };
+		178FE0F22B4C792C00E028E1 /* Firestore+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F12B4C792C00E028E1 /* Firestore+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		178F29A92B4A363F000AD59E /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		178FE0ED2B4C71E200E028E1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		178FE0EF2B4C77B100E028E1 /* CommentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRepository.swift; sourceTree = "<group>"; };
+		178FE0F12B4C792C00E028E1 /* Firestore+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				176471902B48BFFA009071D4 /* Loadable.swift */,
+				178FE0F12B4C792C00E028E1 /* Firestore+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				178F299D2B49F90D000AD59E /* AuthView.swift in Sources */,
 				176471882B488A92009071D4 /* NewPostForm.swift in Sources */,
 				178F29A12B49FB6C000AD59E /* FormViewModel.swift in Sources */,
+				178FE0F22B4C792C00E028E1 /* Firestore+Extensions.swift in Sources */,
 				176471962B48CADE009071D4 /* EmptyListView.swift in Sources */,
 				178F29962B49E791000AD59E /* MainTabView.swift in Sources */,
 				178F29A72B4A304C000AD59E /* User.swift in Sources */,
