@@ -35,6 +35,7 @@
 		178F29A72B4A304C000AD59E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A62B4A304C000AD59E /* User.swift */; };
 		178F29AA2B4A363F000AD59E /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A92B4A363F000AD59E /* ViewModelFactory.swift */; };
 		178FE0EE2B4C71E200E028E1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0ED2B4C71E200E028E1 /* Comment.swift */; };
+		178FE0F02B4C77B100E028E1 /* CommentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0EF2B4C77B100E028E1 /* CommentsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		178F29A62B4A304C000AD59E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		178F29A92B4A363F000AD59E /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		178FE0ED2B4C71E200E028E1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		178FE0EF2B4C77B100E028E1 /* CommentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				1764718D2B48A7E4009071D4 /* PostsRepository.swift */,
+				178FE0EF2B4C77B100E028E1 /* CommentsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				178F29A52B4A0999000AD59E /* PrimaryButtonStyle.swift in Sources */,
+				178FE0F02B4C77B100E028E1 /* CommentsRepository.swift in Sources */,
 				178F29942B49D4C6000AD59E /* PostRowViewModel.swift in Sources */,
 				176471822B48810A009071D4 /* Post.swift in Sources */,
 				176471652B487D11009071D4 /* SocialcademyApp.swift in Sources */,
