@@ -34,6 +34,7 @@
 		178F29A52B4A0999000AD59E /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A42B4A0999000AD59E /* PrimaryButtonStyle.swift */; };
 		178F29A72B4A304C000AD59E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A62B4A304C000AD59E /* User.swift */; };
 		178F29AA2B4A363F000AD59E /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F29A92B4A363F000AD59E /* ViewModelFactory.swift */; };
+		178FE0EE2B4C71E200E028E1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0ED2B4C71E200E028E1 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		178F29A42B4A0999000AD59E /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		178F29A62B4A304C000AD59E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		178F29A92B4A363F000AD59E /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
+		178FE0ED2B4C71E200E028E1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			children = (
 				176471812B48810A009071D4 /* Post.swift */,
 				178F29A62B4A304C000AD59E /* User.swift */,
+				178FE0ED2B4C71E200E028E1 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				178F29992B49F53C000AD59E /* AuthService.swift in Sources */,
 				176471912B48BFFA009071D4 /* Loadable.swift in Sources */,
 				178F299F2B49F9E5000AD59E /* ProfileView.swift in Sources */,
+				178FE0EE2B4C71E200E028E1 /* Comment.swift in Sources */,
 				176471842B4882A6009071D4 /* PostsList.swift in Sources */,
 				1764719A2B48E492009071D4 /* Alert+Error.swift in Sources */,
 				178F299B2B49F7CA000AD59E /* AuthViewModel.swift in Sources */,
