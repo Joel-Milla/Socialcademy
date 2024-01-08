@@ -43,6 +43,7 @@
 		178FE1052B4C99B300E028E1 /* CommentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1042B4C99B300E028E1 /* CommentRowViewModel.swift */; };
 		178FE1072B4C9B4C00E028E1 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */; };
 		178FE1252B4CBD8300E028E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 178FE1242B4CBD8300E028E1 /* FirebaseStorage */; };
+		178FE1272B4CBE8600E028E1 /* StorageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1262B4CBE8600E028E1 /* StorageFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		178FE0F72B4C88BB00E028E1 /* CommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRow.swift; sourceTree = "<group>"; };
 		178FE1042B4C99B300E028E1 /* CommentRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowViewModel.swift; sourceTree = "<group>"; };
 		178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		178FE1262B4CBE8600E028E1 /* StorageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				176471902B48BFFA009071D4 /* Loadable.swift */,
 				178FE0F12B4C792C00E028E1 /* Firestore+Extensions.swift */,
 				178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */,
+				178FE1262B4CBE8600E028E1 /* StorageFile.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				178F29992B49F53C000AD59E /* AuthService.swift in Sources */,
 				178FE0F62B4C867400E028E1 /* CommentsList.swift in Sources */,
 				176471912B48BFFA009071D4 /* Loadable.swift in Sources */,
+				178FE1272B4CBE8600E028E1 /* StorageFile.swift in Sources */,
 				178F299F2B49F9E5000AD59E /* ProfileView.swift in Sources */,
 				178FE0EE2B4C71E200E028E1 /* Comment.swift in Sources */,
 				178FE0F42B4C850800E028E1 /* CommentsViewModel.swift in Sources */,
