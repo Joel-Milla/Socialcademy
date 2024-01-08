@@ -28,16 +28,17 @@ struct CommentRow: View {
         .padding(5)
         .swipeActions {
             if commentRowViewModel.canDeleteComment {
-                Button(role: .destructive) {
+                Button {
                     showConfirmationDialog = true
                 } label: {
-                    Label("Delete comment", systemImage: "trash")
+                    Image(systemName: "trash")
                 }
+                .tint(.red)
             }
         }
         .confirmationDialog("Are you sure you want to delete this comment?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
-            Button("Delete", role: .destructive) {
-                commentRowViewModel.deleteComment()
+            Button(role: .destructive, action: {commentRowViewModel.deleteComment()}) {
+                Text("Delete")
             }
         }
     }
