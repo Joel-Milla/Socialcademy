@@ -32,6 +32,8 @@ struct CommentsList: View {
                 .animation(.default, value: comments)
             }
         }
+        .navigationTitle("Comments")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
