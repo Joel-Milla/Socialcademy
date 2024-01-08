@@ -33,15 +33,21 @@ struct CommentsRepository: CommentsRepositoryProtocol {
     let post: Post
     
     func fetchComments() async throws -> [Comment] {
-        return []
+        let comments = try await commentsReference
+            .order(by: "timestamp", descending: true)
+            .getDocuments(as: Comment.self)
+        return comments
     }
     
     func create(_ comment: Comment) async throws {
-        
+        let document = commentsReference.document(comment.id.uuidString)
+        try await document.setData(from: comment)
     }
     
     func delete(_ comment: Comment) async throws {
-        
+        precondition(canDelete(comment))
+        let document = commentsReference.document(comment.id.uuidString)
+        try await document.delete()
     }
 }
 
