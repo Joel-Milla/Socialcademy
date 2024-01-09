@@ -71,6 +71,34 @@ private extension NewPostForm {
             }
         }
     }
+    
+    /* ImageSection using PhotosPicker
+    struct ImageSection2: View {
+        @State private var pickerItem: PhotosPickerItem?
+        @Binding var imageData: Data?
+        @State private var image: Image?
+        
+        var body: some View {
+            Section("Image") {
+                if image != nil {
+                    image?
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                PhotosPicker("Select image", selection: $pickerItem, matching: .images)
+            }
+            .onChange(of: pickerItem, perform: { pickerItem in
+                Task {
+                    if let image = try? await pickerItem?.loadTransferable(type: Image.self) {
+                        self.image = image
+                    } else {
+                        print("faileed")
+                    }
+                }
+            })
+        }
+    }*/
 }
 
 #Preview {
