@@ -21,6 +21,9 @@ struct PostRow: View {
                     .font(.caption)
             }
             .foregroundStyle(.gray)
+            if let image = postRowViewModel.imageURL {
+                PostImage(url: image)
+            }
             Text(postRowViewModel.title)
                 .font(.title3)
                 .fontWeight(.semibold)
@@ -56,6 +59,24 @@ struct PostRow: View {
             }
         }
         .alert("Error", error: $postRowViewModel.error)
+    }
+}
+
+// Extension to show images on post row
+private extension PostRow {
+    struct PostImage: View {
+        let url: URL
+
+        var body: some View {
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            } placeholder: {
+                Color.clear
+            }
+        }
     }
 }
 
