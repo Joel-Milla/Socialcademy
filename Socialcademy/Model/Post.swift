@@ -12,6 +12,7 @@ struct Post: Identifiable, Equatable {
     var content: String
     var author: User
     var imageURL: URL?
+    var numberOfComments = 0
     var isFavorite: Bool = false
     var timestamp = Date()
     var id = UUID()
@@ -27,7 +28,7 @@ struct Post: Identifiable, Equatable {
 
 extension Post: Codable {
     enum CodingKeys: CodingKey {
-        case title, content, author, imageURL, timestamp, id
+        case title, content, author, imageURL, numberOfComments, timestamp, id
     }
 }
 

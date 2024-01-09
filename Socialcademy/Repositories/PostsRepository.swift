@@ -54,7 +54,7 @@ struct PostsRepository: PostsRepositoryProtocol {
         let favorite = Favorite(postID: post.id, userID: user.id)
         let document = favoritesReference.document(favorite.id)
         if post.isFavorite {
-            try await document.delete()
+            try await document.delete() // delete the comment because is changing from isFavorite to unFavorite
         } else {
             try await document.setData(from: favorite)
         }

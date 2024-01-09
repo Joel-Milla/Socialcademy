@@ -31,11 +31,14 @@ struct PostRow: View {
             HStack {
                 FavoriteButton(isFavorite: postRowViewModel.isFavorite, action: {postRowViewModel.favoritePost()})
                 
-                NavigationLink {
-                    CommentsList(commentsViewModel: factory.makeCommentsViewModel(for: postRowViewModel.post))
-                } label: {
-                    Label("Comments", systemImage: "text.bubble")
-                        .foregroundStyle(.gray)
+                HStack {
+                    Text("\(postRowViewModel.numberOfComments)")
+                    NavigationLink {
+                        CommentsList(commentsViewModel: factory.makeCommentsViewModel(for: postRowViewModel.post))
+                    } label: {
+                        Label("Comments", systemImage: "text.bubble")
+                            .foregroundStyle(.gray)
+                    }
                 }
                 
                 Spacer()
@@ -47,7 +50,7 @@ struct PostRow: View {
                         Label("Delete", systemImage: "trash")
                     }
                 }
-
+                
             }
             .labelStyle(.iconOnly)
             
@@ -66,7 +69,7 @@ struct PostRow: View {
 private extension PostRow {
     struct PostImage: View {
         let url: URL
-
+        
         var body: some View {
             AsyncImage(url: url) { image in
                 image
