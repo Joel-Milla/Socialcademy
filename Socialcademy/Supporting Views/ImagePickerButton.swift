@@ -14,14 +14,12 @@ struct ImagePickerButton<Label: View>: View {
     @State private var showImageSourceDialog = false
     @State private var sourceType: UIImagePickerController.SourceType?
     
-
+    
     var body: some View {
-        Group {
-            Button {
-                showImageSourceDialog = true
-            } label: {
-                label()
-            }
+        Button {
+            showImageSourceDialog = true
+        } label: {
+            label()
         }
         .confirmationDialog("Choose Image", isPresented: $showImageSourceDialog) {
             Button("Choose from Library") {
@@ -61,7 +59,7 @@ private extension ImagePickerButton {
                 view.dismiss()
             }
         }
-
+        
         let sourceType: UIImagePickerController.SourceType
         let onSelect: (URL) -> Void
         

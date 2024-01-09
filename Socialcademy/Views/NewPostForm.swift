@@ -55,13 +55,15 @@ private extension NewPostForm {
         
         var body: some View {
             Section("Image") {
-                AsyncImage(url: imageURL) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                } placeholder: {
-                    EmptyView()
+                if imageURL != nil {
+                    AsyncImage(url: imageURL) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                    } placeholder: {
+                        EmptyView()
+                    }
                 }
                 ImagePickerButton(imageURL: $imageURL) {
                     Label("Choose Image", systemImage: "photo.fill")
