@@ -13,8 +13,8 @@ protocol CommentsRepositoryProtocol {
     var user: User { get }
     var post: Post { get }
     func fetchComments() async throws -> [Comment]
-    func create (_ comment: Comment) async throws
-    func delete(_ comment: Comment) async throws
+    mutating func create (_ comment: Comment) async throws
+    mutating func delete(_ comment: Comment) async throws
 }
 
 extension CommentsRepositoryProtocol {
@@ -24,8 +24,8 @@ extension CommentsRepositoryProtocol {
 }
 
 struct CommentsRepository: CommentsRepositoryProtocol {
-    let user: User
-    let post: Post
+    var user: User
+    var post: Post
     
     private var commentsReference: CollectionReference {
         let postsReference = Firestore.firestore().collection("posts")
@@ -44,19 +44,21 @@ struct CommentsRepository: CommentsRepositoryProtocol {
         return comments
     }
     
-    func create(_ comment: Comment) async throws {
+    mutating func create(_ comment: Comment) async throws {
         let document = commentsReference.document(comment.id.uuidString)
         try await document.setData(from: comment)
         let (postReference, numberOfComments) = postReference
-        try await postReference.setData(["numberOfComments":(numberOfComments + 1)], merge: true)
+        self.post.numberOfComments += 1
+        try await postReference.setData(["numberOfComments":(post.numberOfComments)], merge: true)
     }
     
-    func delete(_ comment: Comment) async throws {
+    mutating func delete(_ comment: Comment) async throws {
         precondition(canDelete(comment))
         let document = commentsReference.document(comment.id.uuidString)
         try await document.delete()
         let (postReference, numberOfComments) = postReference
-        try await postReference.setData(["numberOfComments":(numberOfComments - 1)], merge: true)
+        self.post.numberOfComments -= 1
+        try await postReference.setData(["numberOfComments":(post.numberOfComments)], merge: true)
     }
 }
 
@@ -71,7 +73,7 @@ struct CommentsRepositoryStub: CommentsRepositoryProtocol {
         return try await state.simulate()
     }
     
-    func create(_ comment: Comment) async throws {}
-    func delete(_ comment: Comment) async throws {}
+    mutating func create(_ comment: Comment) async throws {}
+    mutating func delete(_ comment: Comment) async throws {}
 }
 #endif

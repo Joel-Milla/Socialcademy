@@ -11,7 +11,7 @@ import Foundation
 class CommentsViewModel: ObservableObject {
     @Published var comments: Loadable<[Comment]> = .loading
     
-    private let commentsRepository: CommentsRepositoryProtocol
+    private var commentsRepository: CommentsRepositoryProtocol
     
     init(commentsRepository: CommentsRepositoryProtocol) {
         self.commentsRepository = commentsRepository
