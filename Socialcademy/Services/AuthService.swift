@@ -51,11 +51,15 @@ class AuthService: ObservableObject {
             preconditionFailure("Cannot update profile for nil user")
         }
         guard let imageFileURL = imageFileURL else {
+            // if call the method with nil url, delete the profile picture
             try await user.updateProfile(\.photoURL, to: nil)
             if let photoURL = user.photoURL {
                 try await StorageFile.atURL(photoURL).delete()
             }
-            return 
+            let userImage = StorageFile
+                .with(namespace: "users", identifier: user.uid)
+            try await userImage.delete()
+            return
         }
         async let newPhotoURL = StorageFile
             .with(namespace: "users", identifier: user.uid)
