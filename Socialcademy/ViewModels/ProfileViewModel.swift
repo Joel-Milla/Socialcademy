@@ -9,18 +9,19 @@ import Foundation
 
 @MainActor
 class ProfileViewModel: ObservableObject, StateManager {
-    @Published var name: String
+    @Published var user: User
     @Published var imageURL: URL? {
         didSet {
             imageURLDidChange(from: oldValue)
         }
     }
     @Published var error: Error?
+    @Published var isWorking: Bool = false
     
     private let authService: AuthService
     
-    init(name: String, imageURL: URL? = nil, error: Error? = nil, authService: AuthService) {
-        self.name = name
+    init(user: User, imageURL: URL? = nil, error: Error? = nil, authService: AuthService) {
+        self.user = user
         self.imageURL = imageURL
         self.error = error
         self.authService = authService
