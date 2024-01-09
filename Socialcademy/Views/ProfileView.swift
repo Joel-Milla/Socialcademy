@@ -15,10 +15,8 @@ struct ProfileView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                AsyncImage(url: profileViewModel.imageURL)
+                ProfileImage(url: profileViewModel.imageURL)
                     .frame(width: 200, height: 200)
-                    .scaledToFit()
-                    .clipShape(Circle())
                 Spacer()
                 Text(profileViewModel.user.name)
                     .font(.title2)
