@@ -29,7 +29,10 @@ struct PostRow: View {
                 .fontWeight(.semibold)
             Text(postRowViewModel.content)
             HStack {
-                FavoriteButton(isFavorite: postRowViewModel.isFavorite, action: {postRowViewModel.favoritePost()})
+                HStack {
+                    Text("\(postRowViewModel.numberOfLikes)")
+                    FavoriteButton(isFavorite: postRowViewModel.isFavorite, action: {postRowViewModel.favoritePost()})
+                }
                 
                 HStack {
                     Text("\(postRowViewModel.numberOfComments)")

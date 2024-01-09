@@ -53,10 +53,13 @@ struct PostsRepository: PostsRepositoryProtocol {
     func favoriteAction(_ post: Post) async throws {
         let favorite = Favorite(postID: post.id, userID: user.id)
         let document = favoritesReference.document(favorite.id)
+        let postDocument = postsReference.document(post.id.uuidString)
         if post.isFavorite {
             try await document.delete() // delete the comment because is changing from isFavorite to unFavorite
+            try await postDocument.setData(["numberOfLikes": (post.numberOfLikes - 1)], merge: true)
         } else {
             try await document.setData(from: favorite)
+            try await postDocument.setData(["numberOfLikes": (post.numberOfLikes + 1)], merge: true)
         }
     }
     

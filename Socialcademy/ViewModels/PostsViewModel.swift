@@ -60,6 +60,14 @@ class PostsViewModel: ObservableObject {
             try await self?.postsRepository.favoriteAction(post)
             guard let index = self?.posts.value?.firstIndex(of: post) else { return }
             self?.posts.value?[index].isFavorite.toggle()
+            
+            // update number of likes
+            guard let isFavorite = self?.posts.value?[index].isFavorite else { return }
+            if isFavorite {
+                self?.posts.value?[index].numberOfLikes += 1
+            } else {
+                self?.posts.value?[index].numberOfLikes -= 1
+            }
         }
         return PostRowViewModel(post: post,
                                 deleteAction: postsRepository.canDelete(post) ? deleteAction : nil,
