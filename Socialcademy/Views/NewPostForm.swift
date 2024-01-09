@@ -17,6 +17,7 @@ struct NewPostForm: View {
                 Section {
                     TextField("Title", text: $newPostViewModel.title)
                 }
+                ImageSection(imageURL: $newPostViewModel.imageURL)
                 Section("Content") {
                     TextEditor(text: $newPostViewModel.content)
                         .multilineTextAlignment(.leading)
@@ -43,6 +44,29 @@ struct NewPostForm: View {
         .onChange(of: newPostViewModel.isWorking) { isWorking in
             guard !isWorking, newPostViewModel.error == nil else { return }
             dismiss()
+        }
+    }
+}
+
+// The section to select an image
+private extension NewPostForm {
+    struct ImageSection: View {
+        @Binding var imageURL: URL?
+        
+        var body: some View {
+            Section("Image") {
+                AsyncImage(url: imageURL) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                } placeholder: {
+                    EmptyView()
+                }
+                ImagePickerButton(imageURL: $imageURL) {
+                    Label("Choose Image", systemImage: "photo.fill")
+                }
+            }
         }
     }
 }
