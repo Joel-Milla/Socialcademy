@@ -44,6 +44,7 @@
 		178FE1072B4C9B4C00E028E1 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */; };
 		178FE1252B4CBD8300E028E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 178FE1242B4CBD8300E028E1 /* FirebaseStorage */; };
 		178FE1272B4CBE8600E028E1 /* StorageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1262B4CBE8600E028E1 /* StorageFile.swift */; };
+		178FE1292B4CC21D00E028E1 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1282B4CC21D00E028E1 /* ImagePickerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		178FE1042B4C99B300E028E1 /* CommentRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowViewModel.swift; sourceTree = "<group>"; };
 		178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		178FE1262B4CBE8600E028E1 /* StorageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFile.swift; sourceTree = "<group>"; };
+		178FE1282B4CC21D00E028E1 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				176471952B48CADE009071D4 /* EmptyListView.swift */,
 				178F29A42B4A0999000AD59E /* PrimaryButtonStyle.swift */,
 				176471992B48E492009071D4 /* Alert+Error.swift */,
+				178FE1282B4CC21D00E028E1 /* ImagePickerButton.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				1764718E2B48A7E4009071D4 /* PostsRepository.swift in Sources */,
 				1764718B2B48A110009071D4 /* PostsViewModel.swift in Sources */,
 				176471862B4884E8009071D4 /* PostRow.swift in Sources */,
+				178FE1292B4CC21D00E028E1 /* ImagePickerButton.swift in Sources */,
 				178F29992B49F53C000AD59E /* AuthService.swift in Sources */,
 				178FE0F62B4C867400E028E1 /* CommentsList.swift in Sources */,
 				176471912B48BFFA009071D4 /* Loadable.swift in Sources */,
