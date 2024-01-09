@@ -29,19 +29,19 @@ struct PostRow: View {
                 .fontWeight(.semibold)
             Text(postRowViewModel.content)
             HStack {
-                HStack {
-                    Text("\(postRowViewModel.numberOfLikes)")
+                HStack(spacing: 4) {
                     FavoriteButton(isFavorite: postRowViewModel.isFavorite, action: {postRowViewModel.favoritePost()})
+                    Text("\(postRowViewModel.numberOfLikes)")
                 }
                 
-                HStack {
-                    Text("\(postRowViewModel.numberOfComments)")
+                HStack(spacing: 4) {
                     NavigationLink {
                         CommentsList(commentsViewModel: factory.makeCommentsViewModel(for: postRowViewModel.post))
                     } label: {
                         Label("Comments", systemImage: "text.bubble")
-                            .foregroundStyle(.gray)
+                            .foregroundStyle((postRowViewModel.numberOfComments == 0) ? .gray : .blue)
                     }
+                    Text("\(postRowViewModel.numberOfComments)")
                 }
                 
                 Spacer()
