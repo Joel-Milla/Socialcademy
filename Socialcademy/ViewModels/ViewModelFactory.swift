@@ -26,7 +26,7 @@ class ViewModelFactory: ObservableObject {
     }
     
     func makeProfileViewModel() -> ProfileViewModel {
-        return ProfileViewModel(user: user, authService: authService)
+        return ProfileViewModel(user: user, imageURL: user.imageURL, authService: authService)
     }
 }
 
