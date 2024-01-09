@@ -41,7 +41,7 @@
 		178FE0F62B4C867400E028E1 /* CommentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F52B4C867400E028E1 /* CommentsList.swift */; };
 		178FE0F82B4C88BB00E028E1 /* CommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE0F72B4C88BB00E028E1 /* CommentRow.swift */; };
 		178FE1052B4C99B300E028E1 /* CommentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1042B4C99B300E028E1 /* CommentRowViewModel.swift */; };
-		178FE1072B4C9B4C00E028E1 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */; };
+		178FE1072B4C9B4C00E028E1 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1062B4C9B4C00E028E1 /* StateManager.swift */; };
 		178FE1252B4CBD8300E028E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 178FE1242B4CBD8300E028E1 /* FirebaseStorage */; };
 		178FE1272B4CBE8600E028E1 /* StorageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1262B4CBE8600E028E1 /* StorageFile.swift */; };
 		178FE1292B4CC21D00E028E1 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1282B4CC21D00E028E1 /* ImagePickerButton.swift */; };
@@ -80,7 +80,7 @@
 		178FE0F52B4C867400E028E1 /* CommentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsList.swift; sourceTree = "<group>"; };
 		178FE0F72B4C88BB00E028E1 /* CommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRow.swift; sourceTree = "<group>"; };
 		178FE1042B4C99B300E028E1 /* CommentRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowViewModel.swift; sourceTree = "<group>"; };
-		178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		178FE1062B4C9B4C00E028E1 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		178FE1262B4CBE8600E028E1 /* StorageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFile.swift; sourceTree = "<group>"; };
 		178FE1282B4CC21D00E028E1 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
 		178FE12A2B4CD03D00E028E1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 			children = (
 				176471902B48BFFA009071D4 /* Loadable.swift */,
 				178FE0F12B4C792C00E028E1 /* Firestore+Extensions.swift */,
-				178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */,
+				178FE1062B4C9B4C00E028E1 /* StateManager.swift */,
 				178FE1262B4CBE8600E028E1 /* StorageFile.swift */,
 			);
 			path = Utilities;
@@ -321,7 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				178F29A52B4A0999000AD59E /* PrimaryButtonStyle.swift in Sources */,
-				178FE1072B4C9B4C00E028E1 /* ErrorHandler.swift in Sources */,
+				178FE1072B4C9B4C00E028E1 /* StateManager.swift in Sources */,
 				178FE0F02B4C77B100E028E1 /* CommentsRepository.swift in Sources */,
 				178F29942B49D4C6000AD59E /* PostRowViewModel.swift in Sources */,
 				176471822B48810A009071D4 /* Post.swift in Sources */,
