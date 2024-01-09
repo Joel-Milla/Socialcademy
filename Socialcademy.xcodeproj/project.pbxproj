@@ -45,6 +45,7 @@
 		178FE1252B4CBD8300E028E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 178FE1242B4CBD8300E028E1 /* FirebaseStorage */; };
 		178FE1272B4CBE8600E028E1 /* StorageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1262B4CBE8600E028E1 /* StorageFile.swift */; };
 		178FE1292B4CC21D00E028E1 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE1282B4CC21D00E028E1 /* ImagePickerButton.swift */; };
+		178FE12B2B4CD03D00E028E1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FE12A2B4CD03D00E028E1 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		178FE1062B4C9B4C00E028E1 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		178FE1262B4CBE8600E028E1 /* StorageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFile.swift; sourceTree = "<group>"; };
 		178FE1282B4CC21D00E028E1 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
+		178FE12A2B4CD03D00E028E1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				178F299A2B49F7CA000AD59E /* AuthViewModel.swift */,
 				178F29A92B4A363F000AD59E /* ViewModelFactory.swift */,
 				178FE0F32B4C850800E028E1 /* CommentsViewModel.swift */,
+				178FE12A2B4CD03D00E028E1 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				1764718B2B48A110009071D4 /* PostsViewModel.swift in Sources */,
 				176471862B4884E8009071D4 /* PostRow.swift in Sources */,
 				178FE1292B4CC21D00E028E1 /* ImagePickerButton.swift in Sources */,
+				178FE12B2B4CD03D00E028E1 /* ProfileViewModel.swift in Sources */,
 				178F29992B49F53C000AD59E /* AuthService.swift in Sources */,
 				178FE0F62B4C867400E028E1 /* CommentsList.swift in Sources */,
 				176471912B48BFFA009071D4 /* Loadable.swift in Sources */,
