@@ -6,6 +6,7 @@ This project is a hands-on practice focused on creating a social media applicati
 ### App Demonstration
 ![App in use](Assets/socialcademy.gif)
 ![App in use](Assets/socialcademy1.gif)
+![App in use](Assets/socialcademy2.gif)
 
 ## Features
 - **Browse Posts**:  Users can explore posts uploaded by others, comment on them, like them, and see posts filtered by each user by clicking on their username.
