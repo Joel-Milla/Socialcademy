@@ -47,7 +47,7 @@ struct CommentsRepository: CommentsRepositoryProtocol {
     mutating func create(_ comment: Comment) async throws {
         let document = commentsReference.document(comment.id.uuidString)
         try await document.setData(from: comment)
-        let (postReference, numberOfComments) = postReference
+        let (postReference, _) = postReference
         self.post.numberOfComments += 1
         try await postReference.setData(["numberOfComments":(post.numberOfComments)], merge: true)
     }
@@ -56,7 +56,7 @@ struct CommentsRepository: CommentsRepositoryProtocol {
         precondition(canDelete(comment))
         let document = commentsReference.document(comment.id.uuidString)
         try await document.delete()
-        let (postReference, numberOfComments) = postReference
+        let (postReference, _) = postReference
         self.post.numberOfComments -= 1
         try await postReference.setData(["numberOfComments":(post.numberOfComments)], merge: true)
     }
